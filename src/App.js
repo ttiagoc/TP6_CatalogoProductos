@@ -5,20 +5,23 @@ import Productos from "./components/Productos";
 import Home from "./components/Home";
 import Nosotros from "./components/Nosotros";
 import Contacto from "./components/Contacto";
+import Layout from "./components/Layout";
 
 function App() {
   return (
-<>   
-  <BrowserRouter>
-       <Routes>
-         <Route path="/" element={<Home />}></Route>
-	    <Route path="/productos" element={<Productos />}></Route>
-	    <Route path="/nosotros" element={<Nosotros/>}></Route>
-    <Route path="/contacto" element={<Contacto />}></Route>
-       </Routes>
-     </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />}></Route>
+            <Route path="/productos" element={<Productos />}></Route>
+            <Route path="/nosotros" element={<Nosotros />}></Route>
+            <Route path="/contacto" element={<Contacto />}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
 
-</>
+    </>
   );
 }
 

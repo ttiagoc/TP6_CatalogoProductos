@@ -8,14 +8,7 @@ export default function Contacto() {
 
             <header>
                 <h1>E-Commerce</h1>
-                <nav>
-
-                    <Link to="/">Home</Link>
-                    <Link to="/productos">Productos</Link>
-                    <Link to="/nosotros">Nosotros</Link>
-                    <Link to="/contacto">Contacto</Link>
-
-                </nav>
+               
             </header>
 
             <section class="contact">

@@ -1,21 +1,14 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link , Outlet} from "react-router-dom";
 import '../index.css'
 
 export default function Home() {
     return (
         <>
-
+     
             <header>
                 <h1>E-Commerce</h1>
-                <nav>
-            
-                    <Link to="/home">Home</Link>
-                    <Link to="/productos">Productos</Link>
-                    <Link to="/nosotros">Nosotros</Link>
-                    <Link to="/contacto">Contacto</Link>
-
-                </nav>
+                
             </header>
             <main>
                 <h1 className='titulo'>BIENVENIDOS</h1>

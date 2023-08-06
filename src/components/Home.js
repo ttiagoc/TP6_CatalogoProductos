@@ -1,41 +1,38 @@
 import React from 'react'
-import { Link , Outlet} from "react-router-dom";
-import '../index.css'
+import Products from './Products';
 
-export default function Home() {
+const Home = () => {
     return (
         <>
-     
-            <header>
-                <h1>E-Commerce</h1>
-                
-            </header>
-            <main>
-                <h1 className='titulo'>BIENVENIDOS</h1>
-                <section class="products">
-
-                    <ul>
-                        <li>
-
-                            <img src="https://www.uomax.com.ar/11276-large_default/desodorante-rexona-men-xtracool-x-90-gr.jpg" alt="Product 1" />
-                            <p>This is a product description.</p>
-                        </li>
-                        <li>
-
-                            <img src="https://www.uomax.com.ar/11276-large_default/desodorante-rexona-men-xtracool-x-90-gr.jpg" alt="Product 2" />
-                            <p>This is a product description.</p>
-                        </li>
-                        <li>
-
-                            <img src="https://www.uomax.com.ar/11276-large_default/desodorante-rexona-men-xtracool-x-90-gr.jpg" alt="Product 3" />
-                            <p>This is a product description.</p>
-                        </li>
-                    </ul>
-                </section>
-            </main>
-            <footer>
-                <p>Copyright &copy; 2023 E-Commerce Website</p>
-            </footer>
+            <div className="container px-0" style={{ marginTop: "66px" }}>
+                <div id="FakeShopCarouselInterval" className="carousel slide" data-bs-ride="carousel">
+                    <div className="carousel-inner">
+                        <div className="carousel-item active" data-bs-interval="10000">
+                            <img src="banners/1.png" className="d-block w-100" alt="..." />
+                        </div>
+                        <div className="carousel-item" data-bs-interval="2000">
+                            <img src="banners/2.png" className="d-block w-100" alt="..." />
+                        </div>
+                        <div className="carousel-item" data-bs-interval="2000">
+                            <img src="banners/3.png" className="d-block w-100" alt="..." />
+                        </div>
+                        <div className="carousel-item" data-bs-interval="2000">
+                            <img src="banners/4.png" className="d-block w-100" alt="..." />
+                        </div>
+                    </div>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#FakeShopCarouselInterval" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#FakeShopCarouselInterval" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <Products />
+            </div>
         </>
     )
 }
+
+export default Home;

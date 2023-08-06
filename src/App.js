@@ -5,6 +5,7 @@ import Products from './components/Products';
 import Product from './components/Product';
 
 import Layout from './components/Layout';
+import Contact from './components/Contact';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/product/:id" element={<Product />} />
+            <Route path="/contact" element={<Contact />} />
            
           </Route>
         </Routes>

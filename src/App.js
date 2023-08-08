@@ -1,11 +1,10 @@
 import './index.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './components/Home';
-import Products from './components/Products';
+import Home from './pages/Home';
+import Products from './pages/Products';
 import Product from './components/Product';
-
-import Layout from './components/Layout';
-import Contact from './components/Contact';
+import Layout from './pages/Layout';
+import Contact from './pages/Contact';
 
 
 function App() {

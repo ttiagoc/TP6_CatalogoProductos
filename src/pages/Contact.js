@@ -1,6 +1,6 @@
 import React from 'react'
 import '../index.css'
-
+import Input from '../components/Input'
 
 export default function Contact() {
   return (
@@ -10,18 +10,12 @@ export default function Contact() {
 
         <p>Mail at info@grocty.com or React us out at Facebook or Twitter</p>
         <form action="#" class="form-contact p-5">
-            <div class="form-group pt-3">
-                <input type="email" class="form-control" placeholder="Name" id="email" />
-            </div>
-            <div class="form-group pt-3">
-                <input type="email" class="form-control" placeholder="Email" id="email"/>
-            </div>
-            <div class="form-group pt-3">
-                <input type="email" class="form-control" placeholder="Subject" id="email"/>
-            </div>
-            <div class="form-group pt-3">
-                <input type="email" class="form-control" placeholder="Message" id="email"/>
-            </div>
+           
+            <Input  placeholder={"Name"} id="name" />
+            <Input  type="email" placeholder={"Email"} id="email" />
+            <Input  placeholder={"Subject"} id="subject" />
+            <Input  placeholder={"Message"} id="message" />
+           
 
             <button type="submit " class="btn btn-secondary boton mt-3">Submit</button>
         </form>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton';
 import { NavLink } from 'react-router-dom';
+import FilterOption from '../components/FilterOption';
 
 function Products() {
 
@@ -32,11 +33,11 @@ function Products() {
                 <div className="col-md-3 my-3">
 
                     <div className="position-sticky" style={{ top: "100px" }}>
-                        <button className="btn btn-outline-dark m-1 btn-sm" onClick={() => setFilter(data)}>All</button>
-                        <button className="btn btn-outline-dark m-1 btn-sm" onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
-                        <button className="btn btn-outline-dark m-1 btn-sm" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
-                        <button className="btn btn-outline-dark m-1 btn-sm" onClick={() => filterProduct("jewelery")}>Jewelery</button>
-                        <button className="btn btn-outline-dark m-1 btn-sm" onClick={() => filterProduct("electronics")}>Electronics</button>
+                        <FilterOption onClickFunction={() => setFilter(data)} text="All"/>
+                        <FilterOption onClickFunction={() => filterProduct("women's clothing")} text="Women's Clothing"/>
+                        <FilterOption onClickFunction={() => filterProduct("men's clothing")} text="Men's Clothing"/>
+                        <FilterOption onClickFunction={() => filterProduct("jewelery")} text="Jewelery"/>
+                        <FilterOption onClickFunction={() => filterProduct("electronics")} text="Electronics"/>
                     </div>
 
                 </div>
@@ -85,11 +86,12 @@ function Products() {
                 <div className="col-md-3 my-3">
 
                     <div className="position-sticky" style={{ top: "100px" }}>
-                        <button className="btn btn-outline-dark m-1 btn-sm" onClick={() => setFilter(data)}>All</button>
-                        <button className="btn btn-outline-dark m-1 btn-sm" onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
-                        <button className="btn btn-outline-dark m-1 btn-sm" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
-                        <button className="btn btn-outline-dark m-1 btn-sm" onClick={() => filterProduct("jewelery")}>Jewelery</button>
-                        <button className="btn btn-outline-dark m-1 btn-sm" onClick={() => filterProduct("electronics")}>Electronics</button>
+                        
+                        <FilterOption onClickFunction={() => setFilter(data)} text="All"/>
+                        <FilterOption onClickFunction={() => filterProduct("women's clothing")} text="Women's Clothing"/>
+                        <FilterOption onClickFunction={() => filterProduct("men's clothing")} text="Men's Clothing"/>
+                        <FilterOption onClickFunction={() => filterProduct("jewelery")} text="Jewelery"/>
+                        <FilterOption onClickFunction={() => filterProduct("electronics")} text="Electronics"/>
                     </div>
 
                 </div>

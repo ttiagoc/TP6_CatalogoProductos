@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router';
 import Skeleton from 'react-loading-skeleton';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios'
 
 function Product() {
 
@@ -11,11 +12,22 @@ function Product() {
 
     useEffect(() => {
         const getProduct = async () => {
+            
             setLoading(true);
-            const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-            const data = await response.json();
-            setProduct(data);
-            setLoading(false);
+           
+            axios
+            .get(`https://fakestoreapi.com/products/${id}`)
+            .then((result) => {
+      
+              const response = result.data
+              setProduct(response);
+              setLoading(false);
+      
+            }).catch((error) => {
+              console.log(error);
+            });
+
+           
         }
         getProduct();
     }, [id]);

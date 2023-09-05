@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 export default function FilterOption({onClickFunction, text}) {
 
-    console.log(onClickFunction)
+  
   return (
     <>
 
@@ -11,3 +12,11 @@ export default function FilterOption({onClickFunction, text}) {
     </>
   )
 }
+
+
+FilterOption.propTypes = {
+  
+  text: PropTypes.string,
+  onClickFunction: PropTypes.func,
+}
+

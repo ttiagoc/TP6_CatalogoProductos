@@ -8,11 +8,11 @@ const Navbar = () => {
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark static-top">
                 <div className="container">
-                    <a className="navbar-brand" href="#">
+                    
                         <Link to={"/"}>
                             <img src="/Fakeshop.png" height="30" alt="" />
                         </Link>
-                    </a>
+                   
                   
                     <div className="collapse navbar-collapse" id="navbarResponsive" style={{justifyContent:'flex-end'}}>
                         <ul className="navbar-nav ml-auto">
@@ -28,7 +28,7 @@ const Navbar = () => {
                             
                             <li className="nav-item">
                             
-                            <img src='/shopping-cart.png' height={'40px'} width={'auto'}></img>
+                            <img src='/shopping-cart.png' height={'40px'} width={'auto'} alt="carrito"></img>
                           
                             </li>
                             

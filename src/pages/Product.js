@@ -16,8 +16,10 @@ function Product() {
             setLoading(true);
            
             axios
-            .get(`https://fakestoreapi.com/products/${id}`)
+            .get(`https://dummyjson.com/products/${id}`)
             .then((result) => {
+
+            console.log("id  " + id)
       
               const response = result.data
               setProduct(response);
@@ -101,8 +103,8 @@ function Product() {
                                 <div className="col-md-6">
                                     <div className="images p-3">
                                         <div className="text-center p-4">
-                                            <img id="main-image" alt="product" src={product.image} width="250" />
-                                        </div>
+                                            <img id="main-image" alt="product" src={product.images[0]} width="250" />
+                                        </div> 
                                     </div>
                                 </div>
                                 <div className="col-md-6">
@@ -115,7 +117,7 @@ function Product() {
                                                 {product.title}
                                             </h5>
 
-                                            Rating {product.rating && product.rating.rate}
+                                            Rating {product.rating}
                                             <i className="fa fa-star text-warning"></i>
 
                                             <div className="price d-flex flex-row align-items-center">

@@ -17,10 +17,11 @@ function Products() {
             setLoading(true);      
 
             axios
-            .get(`https://fakestoreapi.com/products/`)
+            .get(`https://dummyjson.com/products/`)
             .then((result) => {
-      
-              const response = result.data
+              
+              const response = result.data.products
+              console.log(result.data.products)
               if (componentMounted) {
               
                 setData(response);
@@ -44,12 +45,12 @@ function Products() {
             <>
                 <div className="col-md-3 my-3">
 
-                    <div className="position-sticky" style={{ top: "100px" }}>
+                  <div className="position-sticky" style={{ top: "100px" }}>
                         <FilterOption onClickFunction={() => setFilter(data)} text="All"/>
-                        <FilterOption onClickFunction={() => filterProduct("women's clothing")} text="Women's Clothing"/>
-                        <FilterOption onClickFunction={() => filterProduct("men's clothing")} text="Men's Clothing"/>
-                        <FilterOption onClickFunction={() => filterProduct("jewelery")} text="Jewelery"/>
-                        <FilterOption onClickFunction={() => filterProduct("electronics")} text="Electronics"/>
+                        <FilterOption onClickFunction={() => filterProduct("fragrances")} text="fragrances"/>
+                        <FilterOption onClickFunction={() => filterProduct("laptops")} text="laptops"/>
+                        <FilterOption onClickFunction={() => filterProduct("smartphones")} text="smartphones"/>
+                        <FilterOption onClickFunction={() => filterProduct("skincare")} text="skincare"/>
                     </div>
 
                 </div>
@@ -91,19 +92,38 @@ function Products() {
         setFilter(updatedList);
     }
 
+    const filterByName = () => {
+        let name = document.querySelector('#inputFiltro').value
+       
+        
+        //const updatedList = data.filter((x) => x.title === name);
+        // setFilter(updatedList);
+         axios
+        .get("https://dummyjson.com/products/search?q=" + name)
+        .then((result) => {
+            console.log("https://dummyjson.com/products/search?q=" + name)
+            console.log("funcion: " + result)
+            //setFilter(result.data)
+
+        })
+
+    }
+
     const ShowProducts = () => {
         return (
             <>
                 <div className='mt-5 pt-5'></div>
                 <div className="col-md-3 my-3">
 
-                    <div className="position-sticky" style={{ top: "100px" }}>
+                     <div className="position-sticky" style={{ top: "100px" }}>
                         
                         <FilterOption onClickFunction={() => setFilter(data)} text="All"/>
-                        <FilterOption onClickFunction={() => filterProduct("women's clothing")} text="Women's Clothing"/>
-                        <FilterOption onClickFunction={() => filterProduct("men's clothing")} text="Men's Clothing"/>
-                        <FilterOption onClickFunction={() => filterProduct("jewelery")} text="Jewelery"/>
-                        <FilterOption onClickFunction={() => filterProduct("electronics")} text="Electronics"/>
+                        <FilterOption onClickFunction={() => filterProduct("fragrances")} text="fragrances"/>
+                        <FilterOption onClickFunction={() => filterProduct("laptops")} text="laptops"/>
+                        <FilterOption onClickFunction={() => filterProduct("smartphones")} text="smartphones"/>
+                        <FilterOption onClickFunction={() => filterProduct("skincare")} text="skincare"/>
+                        
+                        <input onChange={() => filterByName()} id="inputFiltro" type='text'  ></input>
                     </div>
 
                 </div>
@@ -115,7 +135,7 @@ function Products() {
                                 <div className="col-6 col-md-6 col-lg-4 mb-3" key={product.id}>
 
                                     <div className="card h-100">
-                                        <img src={product.image} className="m-3" style={{ height: "300px", width: "auto", objectFit: "contain" }} alt={product.title} />
+                                        <img src={product.images[0]} className="m-3" style={{ height: "300px", width: "auto", objectFit: "contain" }} alt={product.title} />
                                         <div className="m-3 mb-0">
                                             <small className="card-title">{product.title.substring(0, 50)}...</small>
                                         </div>

@@ -4,32 +4,29 @@ import { NavLink } from 'react-router-dom';
 import FilterOption from '../components/FilterOption';
 import axios from 'axios'
 import {ProductsContext}  from '../context/ProductosContext';
-import {CategoriesContext} from '../context/CategoriasContext';
+import {CategoriasContext} from '../context/CategoriasContext';
 
 function Products() {
 
     const { products } = useContext(ProductsContext);
-    const { categories } = useContext(CategoriesContext);
+    const { categories } = useContext(CategoriasContext);
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [filter, setFilter] = useState(data);
+    const [filter, setFilter] = useState([]);
+    
 
         useEffect(() =>
         { 
             setLoading(true)
-            const getProducts = () =>{
+            
             if (products !== null || products !== undefined) {
                 setLoading(false);
                 setData(products);
                 setFilter(products);
-            }else{
-                getProducts()
             }
 
-        }
-            getProducts()
-        }, [])
+        }, [products])
             
    
     const Loading = () => {
@@ -84,17 +81,13 @@ function Products() {
         setFilter(updatedList);
     }
 
-    const filterByName = () => {
-        let name = document.querySelector('#inputFiltro').value
+    const filterByName = (e) => {
     
-        // setFilter(updatedList);
          axios
-        .get("https://dummyjson.com/products/search?q=" + name)
+        .get("https://dummyjson.com/products/search?q=" + e.target.value)
         .then((result) => {
-
-            console.log("https://dummyjson.com/products/search?q=" + name)
-            console.log("funcion: " + result.data.products)
-            //setFilter(result.data.products)
+        
+            setFilter(result.data.products)
 
         })
 
@@ -109,22 +102,22 @@ function Products() {
                      <div className="position-sticky" style={{ top: "100px" }}>
                         
                         <FilterOption onClickFunction={() => setFilter(data)} text="All"/>
-                        <FilterOption onClickFunction={() => filterProduct("fragrances")} text="fragrances"/>
-                        <FilterOption onClickFunction={() => filterProduct("laptops")} text="laptops"/>
-                        <FilterOption onClickFunction={() => filterProduct("smartphones")} text="smartphones"/>
-                        <FilterOption onClickFunction={() => filterProduct("skincare")} text="skincare"/>
-
-                        {categories.map((categoria) => {
-                            {console.log(categoria)}
-                            <FilterOption onClickFunction={() => filterProduct({categoria})} text={categoria}/>
+                     
+                        {categories.map((categoria, index) => {
+                           
+                            return(
+                            <>       
+                                                
+                               <FilterOption onClickFunction={() => filterProduct(categoria)} text={categoria} key={index}/>
+                            
+                            </>)
 
                         })}
                         
-                        <input onChange={() => filterByName()} id="inputFiltro" type='text' ></input>
+                        <input onChange={(e) => filterByName(e)} id="inputFiltro" type='text' placeholder='search...' autoComplete='off'></input>
                     </div>
 
-                </div>
-              {console.log(filter)}
+                </div>              
                 <div className="col-md-9 py-md-3">
                     <div className="row">
                         {filter.map((product) => {

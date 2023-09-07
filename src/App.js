@@ -5,14 +5,14 @@ import Products from './pages/Products';
 import Product from './pages/Product';
 import Layout from './pages/Layout';
 import Contact from './pages/Contact';
-import CategoriesProvider from './context/CategoriasContext';
+import CategoriasProvider from './context/CategoriasContext';
 import ProductsProvider from './context/ProductosContext';
 
 function App() {
   return (
     <>
 
-      <CategoriesProvider>
+      <CategoriasProvider>
         <ProductsProvider>
 
           <BrowserRouter>
@@ -28,7 +28,7 @@ function App() {
           </BrowserRouter>
     
           </ProductsProvider>
-        </CategoriesProvider>
+        </CategoriasProvider>
 
 
     </>

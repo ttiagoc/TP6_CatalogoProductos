@@ -1,9 +1,10 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
-export const CategoriesContext = createContext();
+export const CategoriasContext = createContext();
 
-const CategoriesProvider = (props) => {
+const CategoriasProvider = (props) => {
+
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -19,15 +20,15 @@ const CategoriesProvider = (props) => {
 
   if(categories !== []){
     return (
-        <CategoriesContext.Provider
+        <CategoriasContext.Provider
           value={{
             categories,
           }}
         >
           {props.children}
-        </CategoriesContext.Provider>
+        </CategoriasContext.Provider>
       );
   }
 };
 
-export default CategoriesProvider;
+export default CategoriasProvider;

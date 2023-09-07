@@ -106,7 +106,7 @@ function Product() {
                                 <div className="col-md-6">
                                     <div className="images p-3">
                                          <div className="text-center p-4">
-                                            <img id="main-image" alt="product" src={imgs[0]} width="250" />
+                                            <img id="main-image" alt="product" src={imgs[0]} width="250" height="auto" />
                                         </div> 
                                        
                                     </div>

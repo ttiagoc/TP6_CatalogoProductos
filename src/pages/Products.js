@@ -1,45 +1,37 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Skeleton from 'react-loading-skeleton';
 import { NavLink } from 'react-router-dom';
 import FilterOption from '../components/FilterOption';
 import axios from 'axios'
+import {ProductsContext}  from '../context/ProductosContext';
+import {CategoriesContext} from '../context/CategoriasContext';
 
 function Products() {
+
+    const { products } = useContext(ProductsContext);
+    const { categories } = useContext(CategoriesContext);
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [filter, setFilter] = useState(data);
 
-    useEffect(() => {
-        let componentMounted = true;
-        const getProdcuts = async () => {
-
-            setLoading(true);      
-
-            axios
-            .get(`https://dummyjson.com/products/`)
-            .then((result) => {
-              
-              const response = result.data.products
-              console.log(result.data.products)
-              if (componentMounted) {
-              
-                setData(response);
-                setFilter(response);
+        useEffect(() =>
+        { 
+            setLoading(true)
+            const getProducts = () =>{
+            if (products !== null || products !== undefined) {
                 setLoading(false);
+                setData(products);
+                setFilter(products);
+            }else{
+                getProducts()
             }
-              
-            }).catch((error) => {
-              console.log(error);
-            });
 
-            return () => {
-                componentMounted = false;
-            }
         }
-        getProdcuts();
-    }, []);
-
+            getProducts()
+        }, [])
+            
+   
     const Loading = () => {
         return (
             <>
@@ -94,16 +86,15 @@ function Products() {
 
     const filterByName = () => {
         let name = document.querySelector('#inputFiltro').value
-       
-        
-        //const updatedList = data.filter((x) => x.title === name);
+    
         // setFilter(updatedList);
          axios
         .get("https://dummyjson.com/products/search?q=" + name)
         .then((result) => {
+
             console.log("https://dummyjson.com/products/search?q=" + name)
-            console.log("funcion: " + result)
-            //setFilter(result.data)
+            console.log("funcion: " + result.data.products)
+            //setFilter(result.data.products)
 
         })
 
@@ -122,12 +113,18 @@ function Products() {
                         <FilterOption onClickFunction={() => filterProduct("laptops")} text="laptops"/>
                         <FilterOption onClickFunction={() => filterProduct("smartphones")} text="smartphones"/>
                         <FilterOption onClickFunction={() => filterProduct("skincare")} text="skincare"/>
+
+                        {categories.map((categoria) => {
+                            {console.log(categoria)}
+                            <FilterOption onClickFunction={() => filterProduct({categoria})} text={categoria}/>
+
+                        })}
                         
-                        <input onChange={() => filterByName()} id="inputFiltro" type='text'  ></input>
+                        <input onChange={() => filterByName()} id="inputFiltro" type='text' ></input>
                     </div>
 
                 </div>
-
+              {console.log(filter)}
                 <div className="col-md-9 py-md-3">
                     <div className="row">
                         {filter.map((product) => {

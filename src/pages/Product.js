@@ -4,6 +4,7 @@ import Skeleton from 'react-loading-skeleton';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios'
 
+
 function Product() {
 
     const { id } = useParams();
@@ -18,8 +19,6 @@ function Product() {
             axios
             .get(`https://dummyjson.com/products/${id}`)
             .then((result) => {
-
-            console.log("id  " + id)
       
               const response = result.data
               setProduct(response);
@@ -55,7 +54,7 @@ function Product() {
                                 </div>
                                 <div className="col-md-6">
                                     <div className="border p-4">
-                                        <div className="mt-4 mb-3"> <span className="text-uppercase text-muted brand">                                                <Skeleton height={30} width={150} />
+                                        <div className="mt-4 mb-3"> <span className="text-uppercase text-muted brand"><Skeleton height={30} width={150} />
                                         </span>
                                             <h5 className="text-uppercase">
                                                 <Skeleton height={30} width={200} />
@@ -88,6 +87,10 @@ function Product() {
     }
 
     const ShowDetails = () => {
+
+        const imgs = ["https://i.dummyjson.com/data/products/" + id + "/1.jpg","https://i.dummyjson.com/data/products/" + id + "/2.jpg","https://i.dummyjson.com/data/products/" + id + "/3.jpg", ]
+
+
         return (
             <>
                 <div className="row d-flex justify-content-center">
@@ -102,9 +105,10 @@ function Product() {
                             <div className="row">
                                 <div className="col-md-6">
                                     <div className="images p-3">
-                                        <div className="text-center p-4">
-                                            <img id="main-image" alt="product" src={product.images[0]} width="250" />
+                                         <div className="text-center p-4">
+                                            <img id="main-image" alt="product" src={imgs[0]} width="250" />
                                         </div> 
+                                       
                                     </div>
                                 </div>
                                 <div className="col-md-6">

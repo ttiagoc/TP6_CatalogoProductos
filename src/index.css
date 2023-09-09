@@ -51,4 +51,14 @@ code {
     margin-top:0px;
 }
 
+.searchBar{
+    border-radius: 5px;
+    width: 80%;
+    height: 40px;
+    border-width: 2px;
+    border-color: black;
+    margin-bottom: 10px;
+    
+}
+
     

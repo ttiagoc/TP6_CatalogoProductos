@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router';
-import Skeleton from 'react-loading-skeleton';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios'
-
+import { ColorRing } from 'react-loader-spinner'
 
 function Product() {
 
@@ -33,67 +32,30 @@ function Product() {
         getProduct();
     }, [id]);
 
-    const Loading = () => {
+   
+    if (loading) {
         return (
-            <>
-                <div className="row d-flex justify-content-center">
-                    <div className="col-md-12">
-                        <NavLink className="text-decoration-none text-dark" to={`/`}>
-                            <div className="d-flex align-items-center m-3">
-                                <Skeleton height={20} width={50} />
-                            </div>
-                        </NavLink>
-                        <div>
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <div className="images p-3">
-                                        <div className="text-center p-4">
-                                            <Skeleton height={300} width={250} />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="border p-4">
-                                        <div className="mt-4 mb-3"> <span className="text-uppercase text-muted brand"><Skeleton height={30} width={150} />
-                                        </span>
-                                            <h5 className="text-uppercase">
-                                                <Skeleton height={30} width={200} />
-                                            </h5>
-                                            <div className="price d-flex flex-row align-items-center">
-                                                <span className="act-price">
-                                                    <Skeleton height={20} width={70} />
-                                                    <Skeleton height={30} width={100} />
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <p className="about">
-                                            <Skeleton height={10} width={300} />
-                                            <Skeleton height={10} width={300} />
-                                            <Skeleton height={10} width={300} />
-                                            <Skeleton height={10} width={300} />
-                                        </p>
-                                        <div className="cart mt-4 align-items-center">
-                                            <Skeleton height={40} width={150} />
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </>
+            <div className='container'>
+            <div className='row'>
+                <ColorRing
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="blocks-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="blocks-wrapper"
+                    colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+                />
+            </div>
+        </div>
         )
-    }
+    }else{
 
-    const ShowDetails = () => {
+    return (
+        <>
+            <div className="container px-0 mb-5" style={{ marginTop: "66px" }}>
 
-        const imgs = ["https://i.dummyjson.com/data/products/" + id + "/1.jpg","https://i.dummyjson.com/data/products/" + id + "/2.jpg","https://i.dummyjson.com/data/products/" + id + "/3.jpg", ]
-
-
-        return (
-            <>
-                <div className="row d-flex justify-content-center">
+            <div className="row d-flex justify-content-center">
                     <div className="col-md-12">
                         <NavLink className="text-decoration-none text-dark" to={`/`}>
                             <div className="d-flex align-items-center m-3">
@@ -106,7 +68,7 @@ function Product() {
                                 <div className="col-md-6">
                                     <div className="images p-3">
                                          <div className="text-center p-4">
-                                            <img id="main-image" alt="product" src={imgs[0]} width="250" height="auto" />
+                                            <img id="main-image" alt="product" src={'https://i.dummyjson.com/data/products/' + id + '/1.jpg'} width="250" height="auto" />
                                         </div> 
                                        
                                     </div>
@@ -136,19 +98,10 @@ function Product() {
                         </div>
                     </div>
                 </div>
-            </>
-        )
-    }
-
-    return (
-        <>
-            <div className="container px-0 mb-5" style={{ marginTop: "66px" }}>
-
-                {loading ? <Loading /> : <ShowDetails />}
-
             </div>
         </>
     )
+}
 }
 
 export default Product

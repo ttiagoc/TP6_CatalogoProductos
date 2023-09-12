@@ -1,8 +1,11 @@
 import React from 'react'
-import Products from './Products';
 import CarrouselImg from '../components/CarrouselImg';
+import Products from '../components/Products';
 
 const Home = () => {
+
+
+
     return (
         <>
             <div className="container px-0" style={{ marginTop: "66px" }}>
@@ -24,7 +27,7 @@ const Home = () => {
                         <span className="visually-hidden">Next</span>
                     </button>
                 </div>
-                <Products />
+                <Products/>
             </div>
         </>
     )

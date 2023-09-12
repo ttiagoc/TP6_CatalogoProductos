@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios'
 import { ColorRing } from 'react-loader-spinner'
 
-function Product() {
+function ProductDetail() {
 
     const { id } = useParams();
     const [product, setProduct] = useState([]);
@@ -104,4 +104,4 @@ function Product() {
 }
 }
 
-export default Product
+export default ProductDetail

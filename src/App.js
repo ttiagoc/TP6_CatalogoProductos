@@ -1,8 +1,8 @@
 import './index.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
-import Products from './pages/Products';
-import Product from './pages/Product';
+import ProductsPage from './pages/ProductsPage';
+import ProductDetail from './pages/ProductDetail';
 import Layout from './pages/Layout';
 import Contact from './pages/Contact';
 import CategoriasProvider from './context/CategoriasContext';
@@ -19,8 +19,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Layout />}>
                 <Route index element={<Home />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/product/:id" element={<Product />} />
+                <Route path="/products" element={<ProductsPage />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
                 <Route path="/contact" element={<Contact />} />
 
               </Route>

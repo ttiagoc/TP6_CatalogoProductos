@@ -7,7 +7,7 @@ import { CategoriasContext } from '../context/CategoriasContext';
 import { ColorRing } from 'react-loader-spinner'
 import '../index.css'
 
-function Products() {
+function ProductsPage() {
 
     const { products } = useContext(ProductsContext);
     const { categories } = useContext(CategoriasContext);
@@ -99,13 +99,14 @@ function Products() {
 
                     </div>
                     <div className="col-md-9 py-md-3">
+                        
                         <div className="row">
                             {filter.map((product) => {
                                 return (
                                     <div className="col-6 col-md-6 col-lg-4 mb-3" key={product.id}>
 
                                         <div className="card h-100">
-                                            <img src={product.images[0]} className="m-3" style={{ height: "300px", width: "auto", objectFit: "contain" }} alt={product.title} />
+                                            <img src={product.thumbnail} className="m-3" style={{ height: "300px", width: "auto", objectFit: "contain" }} alt={product.title} />
                                             <div className="m-3 mb-0">
                                                 <small className="card-title">{product.title.substring(0, 50)}...</small>
                                             </div>
@@ -132,4 +133,4 @@ function Products() {
         )
     }
 }
-export default Products
+export default ProductsPage

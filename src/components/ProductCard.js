@@ -1,22 +1,14 @@
-import React, {useContext} from "react";
-import { ProductsContext } from "../context/ProductosContext";
-import { NavLink } from "react-router-dom";
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 
-export default function Products() {
-
-  const { products } = useContext(ProductsContext);
-
-  const filteredProducts = products.filter((x) => x.id < 10);
-
+export default function Product({product}) {
+   
   return (
     <>
-    <div className="col-md-9 py-md-3 container mt-5">
-        <h1 className="text-center pb-5" style={{fontFamily:"cursive"}}>FEATURED</h1>
-      <div className="row">
-      {filteredProducts.map((product) => {
-        return (
-          <div className="col-6 col-md-6 col-lg-4 mb-3" key={product.id}>
+    
+         <div className="col-6 col-md-6 col-lg-4 mb-3" key={product.id}>
             <div className="card h-100">
               <img
                 src={product.thumbnail}
@@ -47,12 +39,16 @@ export default function Products() {
               
             </div>
           </div>
-       
-        );
-      })}
-
-      </div>
-      </div>
+    
+    
+    
     </>
-  );
+  )
 }
+
+
+Product.propTypes = {
+  
+    product: PropTypes.object,
+   
+  }

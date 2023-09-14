@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+
 
 export default function CarrouselImg({img}) {
   return (
@@ -9,3 +11,10 @@ export default function CarrouselImg({img}) {
     </>
   )
 }
+
+CarrouselImg.propTypes = {
+  
+  img: PropTypes.string,
+ 
+}
+

@@ -28,7 +28,8 @@ const Navbar = () => {
                             
                             <li className="nav-item">
                             
-                            <img src='/shopping-cart.png' height={'40px'} width={'auto'} alt="carrito"></img>
+                            
+                            <Link  to={"/carrito"}><img src='/shopping-cart.png'  height={'40px'} width={'auto'} alt="carrito"></img></Link>
                           
                             </li>
                             

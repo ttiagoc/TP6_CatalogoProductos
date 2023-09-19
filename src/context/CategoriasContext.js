@@ -18,7 +18,7 @@ const CategoriasProvider = (props) => {
       });
   }, []);
 
-  if(categories !== []){
+ 
     return (
         <CategoriasContext.Provider
           value={{
@@ -28,7 +28,7 @@ const CategoriasProvider = (props) => {
           {props.children}
         </CategoriasContext.Provider>
       );
-  }
+  
 };
 
 export default CategoriasProvider;

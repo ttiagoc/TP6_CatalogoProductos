@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect , useContext} from 'react'
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios'
 import { ColorRing } from 'react-loader-spinner'
-
+import { CarritoContext } from '../context/CarritoContext'
 function ProductDetail() {
 
     const { id } = useParams();
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
+    const {AddProduct} = useContext(CarritoContext)
 
     useEffect(() => {
         const getProduct = async () => {
@@ -91,7 +92,7 @@ function ProductDetail() {
                                             </div>
                                         </div>
                                         <p className="text-muted">{product.description}</p>
-                                        <div className="cart mt-4 align-items-center"> <button className="btn btn-outline-dark text-uppercase mr-2 px-4">Buy</button> </div>
+                                        <div className="cart mt-4 align-items-center"> <button className="btn btn-outline-dark text-uppercase mr-2 px-4" onClick={() => AddProduct(product)}>Buy</button> </div>
                                     </div>
                                 </div>
                             </div>

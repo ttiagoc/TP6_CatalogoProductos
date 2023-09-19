@@ -7,6 +7,8 @@ import Layout from './pages/Layout';
 import Contact from './pages/Contact';
 import CategoriasProvider from './context/CategoriasContext';
 import ProductsProvider from './context/ProductosContext';
+import CarritoProvider from './context/CarritoContext';
+import Carrito from './pages/Carrito';
 
 function App() {
   return (
@@ -14,7 +16,7 @@ function App() {
 
       <CategoriasProvider>
         <ProductsProvider>
-
+      <CarritoProvider>
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Layout />}>
@@ -22,11 +24,12 @@ function App() {
                 <Route path="/products" element={<ProductsPage />} />
                 <Route path="/product/:id" element={<ProductDetail />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/carrito" element={<Carrito />} />
 
               </Route>
             </Routes>
           </BrowserRouter>
-    
+          </CarritoProvider>
           </ProductsProvider>
         </CategoriasProvider>
 

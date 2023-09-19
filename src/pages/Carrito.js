@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { CarritoContext } from "../context/CarritoContext";
 import Product from "../components/ProductCard";
 
 export default function Carrito() {
   const { productos, ResetCarrito } = useContext(CarritoContext);
-
-  console.log(productos);
-  console.log(productos.length);
-  console.log("es mayor: " + productos.lenght > 1);
 
   return (
     <>
@@ -29,8 +25,9 @@ export default function Carrito() {
               height: 50,
               width: 150,
               borderRadius: 10,
-              backgroundColor: "yellow",
+              backgroundColor: "#0a4275",
               fontWeight: "bold",
+              color:'white'
             }}
           >
             Resetear Carrito

@@ -38,7 +38,7 @@ const Navbar = () => {
                             
                             <div style={{display:'flex', flexDirection:'row'}}>
                             <Link  to={"/carrito"}><img src='/shopping-cart2.png'  height={'40px'} width={'auto'} alt="carrito"></img></Link>
-                            <div style={{backgroundColor:'#0a4275', borderRadius:10, height:'25px', width:20}}><p className='text-center ' style={{color:'white'}}>{cantidadProductos}</p></div>
+                            <div style={{backgroundColor:'#0a4275', borderRadius:10, height:'25px', width:25}}><p className='text-center ' style={{color:'white'}}>{cantidadProductos}</p></div>
                             </div>
                             </li>
                             

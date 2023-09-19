@@ -1,8 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Link } from 'react-router-dom';
 import '../index.css';
+import { CarritoContext } from "../context/CarritoContext";
 
 const Navbar = () => {
+
+    const { cantidadProductos } = useContext(CarritoContext);
+
     return (
        
         <>
@@ -25,12 +29,17 @@ const Navbar = () => {
                                  <Link to={'/contact'} className="nav-link" style={{color:'white'}}>Contact</Link>
                             
                             </li>
+
+                            
+                            <div style={{width:'10px'}}></div>
                             
                             <li className="nav-item">
+
                             
-                            
-                            <Link  to={"/carrito"}><img src='/shopping-cart.png'  height={'40px'} width={'auto'} alt="carrito"></img></Link>
-                          
+                            <div style={{display:'flex', flexDirection:'row'}}>
+                            <Link  to={"/carrito"}><img src='/shopping-cart2.png'  height={'40px'} width={'auto'} alt="carrito"></img></Link>
+                            <div style={{backgroundColor:'#0a4275', borderRadius:10, height:'25px', width:20}}><p className='text-center ' style={{color:'white'}}>{cantidadProductos}</p></div>
+                            </div>
                             </li>
                             
                         </ul>

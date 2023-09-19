@@ -7,37 +7,41 @@ export default function Carrito() {
 
   console.log(productos);
   console.log(productos.length);
-  console.log("es mayor: "+ productos.lenght > 1)
+  console.log("es mayor: " + productos.lenght > 1);
 
-  if (productos.lenght > 1) {
-    return (
-      <div className="row">
-        <button onClick={() => ResetCarrito()} style={{height:50, width:120, borderRadius:10, backgroundColor:'red'}}>Resetear Carrito</button>
-        <button onClick={() => ResetCarrito()}></button>
-                {productos.map((product, index) => {
-          return <Product product={product} key={index} />;
-        })}
-      </div>
-    );
-  } else {
-    if (productos.lenght === 1) {
-      return (
-        <div className="row">
-            
-          <Product product={productos[0]} key={0} />
+  return (
+    <>
+      <div className="container">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <h1 className="pt-5" style={{ fontWeight: "bold" }}>
+            CARRITO
+          </h1>
+          <button
+            className="m-4"
+            onClick={() => ResetCarrito()}
+            style={{
+              height: 50,
+              width: 150,
+              borderRadius: 10,
+              backgroundColor: "yellow",
+              fontWeight: "bold",
+            }}
+          >
+            Resetear Carrito
+          </button>
         </div>
-      );
-    } else {
-      return (
-        <>
-          <button onClick={() => ResetCarrito()} style={{height:50, width:120, borderRadius:10, backgroundColor:'red'}}>Resetear Carrito</button>
-          <div>NO HAY PRODUCTOS</div>
-        </>
-      );
-    }
-
-    
-  }
-
-
+        <div className="row">
+          {productos.map((product, index) => {
+            return <Product product={product} key={index} />;
+          })}
+        </div>
+      </div>
+    </>
+  );
 }

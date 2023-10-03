@@ -22,14 +22,10 @@ const CarritoProvider = (props) => {
     const AddProduct = (producto) => {
         setProductos([...productos, producto])
         
-         addLocalStorage()
+      localStorage.setItem("productos", JSON.stringify([...productos, producto]))
     }
 
-    const addLocalStorage = () => {
-
-      localStorage.setItem("productos",JSON.stringify(productos))
-
-    }
+  
 
     const ResetCarrito = () => {
         setProductos([])

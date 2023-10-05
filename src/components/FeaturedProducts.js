@@ -15,7 +15,7 @@ export default function Products() {
       <div className="row">
       {filteredProducts.map((product) => {
         return(
-       <Product product={product} />
+       <Product product={product} carrito={false}/>
        )
       })}
 

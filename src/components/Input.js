@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 
-export default function Input({type="text", placeholder,id}) {
+export default function Input({type="text", placeholder,id,onChange}) {
   return (
     <>
 
@@ -18,5 +18,6 @@ Input.propTypes = {
   
   type: PropTypes.string,
   placeholder: PropTypes.string,
-  id: PropTypes.number
+  id: PropTypes.number,
+  onChange: PropTypes.func
 }

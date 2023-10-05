@@ -29,6 +29,15 @@ const CarritoProvider = (props) => {
 
     const ResetCarrito = () => {
         setProductos([])
+        localStorage.removeItem("productos")
+    }
+
+    const DeleteProduct = (deletedProduct) => {
+
+      let newArray = productos.filter(producto => producto !== deletedProduct);
+      setProductos(newArray);
+      localStorage.setItem("productos", JSON.stringify(newArray));
+
     }
    
 
@@ -39,7 +48,8 @@ const CarritoProvider = (props) => {
             productos,
             cantidadProductos,
             AddProduct,
-            ResetCarrito
+            ResetCarrito,
+            DeleteProduct
           }}
         >
           {props.children}

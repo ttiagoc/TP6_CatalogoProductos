@@ -34,8 +34,19 @@ export default function Carrito() {
           </button>
         </div>
         <div className="row">
+          
           {productos.map((product, index) => {
-            return <Product product={product} key={index} />;
+
+            return  (
+            
+            <>
+            <Product product={product} key={index} carrito={true} /> 
+           
+            </>
+          
+          
+          )
+          
           })}
         </div>
       </div>

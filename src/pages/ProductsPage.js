@@ -79,6 +79,7 @@ function ProductsPage() {
 
                             <div>
                                 <input onChange={(e) => filterByName(e)} id="inputFiltro" type='text' placeholder='search...' autoComplete='off' className='searchBar' />
+                                
                             </div>
 
                             <FilterOption onClickFunction={() => setFilter(data)} text="All" />
@@ -103,7 +104,7 @@ function ProductsPage() {
                         <div className="row">
                             {filter.map((product) => {
                                 return (
-                                   <Product product={product}></Product>
+                                   <Product product={product} carrito={false}></Product>
                                 )
                             })}
                         </div>

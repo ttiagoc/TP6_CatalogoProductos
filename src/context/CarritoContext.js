@@ -6,6 +6,8 @@ const CarritoProvider = (props) => {
 
 
     const [productos, setProductos] = useState([]);
+    const [id, setId] = useState(1)
+
     const cantidadProductos = productos.length
 
     useEffect(() => {
@@ -13,6 +15,8 @@ const CarritoProvider = (props) => {
       if (localStorage.getItem("productos") != null) {
         let storage = localStorage.getItem("productos")
         setProductos(JSON.parse(storage))
+        let idStorage = localStorage.getItem("id")
+        setId(idStorage)
     }
       },[])
 
@@ -20,21 +24,34 @@ const CarritoProvider = (props) => {
     
     
     const AddProduct = (producto) => {
-        setProductos([...productos, producto])
+
+      let productoId = {
+        ...producto,
+        id
+      }
+
+
+        setProductos([...productos, productoId])
         
-      localStorage.setItem("productos", JSON.stringify([...productos, producto]))
+      localStorage.setItem("productos", JSON.stringify([...productos, productoId]))
+      localStorage.setItem("id",id)
+      let nuevaId = parseInt(id) + 1
+      setId(nuevaId)
+      console.log(nuevaId)
     }
 
   
 
     const ResetCarrito = () => {
         setProductos([])
+        setId(1)
         localStorage.removeItem("productos")
+        localStorage.removeItem("id")
     }
 
     const DeleteProduct = (deletedProduct) => {
 
-      let newArray = productos.filter(producto => producto !== deletedProduct);
+      let newArray = productos.filter(producto => producto.id !== deletedProduct.id);
       setProductos(newArray);
       localStorage.setItem("productos", JSON.stringify(newArray));
 

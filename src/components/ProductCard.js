@@ -26,15 +26,15 @@ export default function Product({ product, carrito }) {
             </small>
           </div>
           <div style={{ marginTop: "auto" }}>
-            <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex justify-content-end align-items-center">
               <div className="m-3">
                 <b>${product.price}</b>
               </div>
-
+              
               {carrito ? (
-                  <button className="btn btn-sm m-3 border-primary">
-                    <button onClick={() => DeleteProduct(product)}> <i class="fa fa-times" aria-hidden="true"></i></button>
-                  </button>
+             
+                    <button className="btn btn-sm btn-danger m-3" onClick={() => DeleteProduct(product)}> <i class="fa fa-times" aria-hidden="true"></i></button>
+                  
                 ) : (
                   <></>
                 )}
@@ -42,7 +42,7 @@ export default function Product({ product, carrito }) {
                 
                 to={`/product/${product.id}`}
               >
-                <button className="btn btn-sm m-3 border-primary">
+                <button className="btn btn-sm m-3 border-secondary">
                 <i className="fa fa-arrow-right text-muted"></i>
                 </button>
                 </NavLink>
